@@ -1,0 +1,7 @@
+.saru/
+runinfo.sqlite
+saru.progress
+saru????.log
+*.swp
+libfastjson.a
+.sconsign.dblite

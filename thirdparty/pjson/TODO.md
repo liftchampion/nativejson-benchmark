@@ -1,0 +1,1 @@
+- string should remember slice and move it to buf on PJ_STARVING

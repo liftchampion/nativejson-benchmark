@@ -1,0 +1,264 @@
+/*
+ * pjson is a library for parsing json into queue of tokens
+ *
+ * Copyright (C) 2014  Nikolay Orliuk <virkony@gmail.com>
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+static bool pj_poll_tok(pj_parser_ref parser, pj_token *token);
+
+#ifndef __pjson_general_h__
+#define __pjson_general_h__
+
+#include <stdlib.h>
+
+#include "pjson.h"
+#include "pjson_state.h"
+#include "pjson_space.h"
+#include "pjson_keyword.h"
+#include "pjson_string.h"
+#include "pjson_number.h"
+#include "pjson_debug.h"
+
+/* parsing internals */
+static void pj_flush_tok(pj_parser_ref parser, pj_token *token)
+{
+    TRACE_FUNC();
+    assert( pj_state(parser) != S_ERR );
+    assert( pj_state(parser) != S_END );
+
+    if (pj_is_end(parser))
+    {
+        switch (pj_state(parser))
+        {
+        case S_INIT:
+        case S_VALUE:
+        case S_STR_VALUE:
+            /* nothing to flush */
+            parser->state = S_END;
+            token->token_type = PJ_END;
+            return;
+        case S_NUM ... S_NUM_END:
+            if (pj_use_buf(parser))
+            {
+                pj_number_flush(parser, token);
+                return;
+            }
+            /* fall case through to the error */
+        default: ;
+        }
+    }
+    /* all other tokens are simply incomplete */
+    pj_err_tok(parser, token);
+}
+
+static const char
+    * const s_null = "null",
+    * const s_true = "true",
+    * const s_false = "false";
+
+static bool pj_poll_tok(pj_parser_ref parser, pj_token *token)
+{
+    TRACE_FUNC();
+    assert( pj_state(parser) != S_ERR );
+    assert( pj_state(parser) != S_END );
+
+    const char *p = parser->ptr;
+    const char * const p_end = parser->chunk_end;
+    state s = pj_state(parser);
+
+    switch (s)
+    {
+    case S_END:
+        token->token_type = PJ_END;
+        return false;
+    case S_ERR:
+        token->token_type = PJ_ERR;
+        return false;
+
+    case S_INIT:
+        if (p == p_end)
+        {
+            token->token_type = PJ_STARVING;
+            return false;
+        }
+        switch (*p)
+        {
+        case '\t': case '\n': case '\r': case ' ':
+            return pj_space(parser, token, p+1, S_INIT);
+        case '/':
+            return pj_comment_start(parser, token, p+1, S_INIT);
+        case 'n':
+            parser->state = S_N;
+            parser->ptr = ++p;
+            return pj_keyword(parser, token, s_null, S_N, PJ_TOK_NULL);
+        case 't':
+            parser->state = S_T;
+            parser->ptr = ++p;
+            return pj_keyword(parser, token, s_true, S_T, PJ_TOK_TRUE);
+        case 'f':
+            parser->state = S_F;
+            parser->ptr = ++p;
+            return pj_keyword(parser, token, s_false, S_F, PJ_TOK_FALSE);
+        case '[':
+            pj_tok(parser, token, ++p, S_INIT, PJ_TOK_ARR);
+            return true;
+        case ']':
+            pj_tok(parser, token, ++p, S_VALUE, PJ_TOK_ARR_E);
+            return true;
+        case '{':
+            pj_tok(parser, token, ++p, S_INIT, PJ_TOK_MAP);
+            return true;
+        case '}':
+            pj_tok(parser, token, ++p, S_VALUE, PJ_TOK_MAP_E);
+            return true;
+        case '"':
+            parser->state = S_STR;
+            parser->chunk = ++p;
+            return pj_string(parser, token, p);
+
+        case '-':
+        case '0' ... '9':
+            return pj_number(parser, token, S_NUM, p);
+
+        default:
+            pj_err_tok(parser, token);
+            return false;
+        }
+
+    case S_COMMA:
+        if (p == p_end)
+        {
+            token->token_type = PJ_STARVING;
+            return false;
+        }
+        switch (*p)
+        {
+        case '\t': case '\n': case '\r': case ' ':
+            return pj_space(parser, token, p+1, S_COMMA);
+        case '/':
+            return pj_comment_start(parser, token, p+1, S_COMMA);
+        case 'n':
+            parser->state = S_N;
+            parser->ptr = ++p;
+            return pj_keyword(parser, token, s_null, S_N, PJ_TOK_NULL);
+        case 't':
+            parser->state = S_T;
+            parser->ptr = ++p;
+            return pj_keyword(parser, token, s_true, S_T, PJ_TOK_TRUE);
+        case 'f':
+            parser->state = S_F;
+            parser->ptr = ++p;
+            return pj_keyword(parser, token, s_false, S_F, PJ_TOK_FALSE);
+        case '[':
+            pj_tok(parser, token, ++p, S_INIT, PJ_TOK_ARR);
+            return true;
+        case '{':
+            pj_tok(parser, token, ++p, S_INIT, PJ_TOK_MAP);
+            return true;
+        case '"':
+            parser->state = S_STR;
+            parser->chunk = ++p;
+            return pj_string(parser, token, p);
+
+        case '-':
+        case '0' ... '9':
+            return pj_number(parser, token, S_NUM, p);
+
+        default:
+            pj_err_tok(parser, token);
+            return false;
+        }
+
+    case S_N ... S_NUL:
+        return pj_keyword(parser, token, s_null, S_N, PJ_TOK_NULL);
+
+    case S_T ... S_TRU:
+        return pj_keyword(parser, token, s_true, S_T, PJ_TOK_TRUE);
+
+    case S_F ... S_FALS:
+        return pj_keyword(parser, token, s_false, S_F, PJ_TOK_FALSE);
+
+    case S_NUM ... S_NUM_END:
+        return pj_number(parser, token, s, p);
+
+    case S_STR:
+        return pj_string(parser, token, p);
+    case S_ESC:
+        return pj_string_esc(parser, token, p);
+    case S_UNICODE_ESC:
+        return pj_unicode_esc(parser, token, p);
+    case S_UNICODE ... S_UNICODE_FINISH:
+        return pj_unicode(parser, token, p);
+
+    case S_VALUE:
+    case S_STR_VALUE:
+        if (p == p_end)
+        {
+            token->token_type = PJ_STARVING;
+            return false;
+        }
+        switch (*p)
+        {
+        case '\t': case '\n': case '\r': case ' ':
+            return pj_space(parser, token, p+1, s);
+        case '/':
+            return pj_comment_start(parser, token, p+1, s);
+
+        case ',':
+            parser->ptr = ++p;
+            parser->chunk = p;
+            parser->state = S_COMMA;
+            return pj_poll_tok(parser, token);
+
+        case ']':
+            pj_tok(parser, token, ++p, S_VALUE, PJ_TOK_ARR_E);
+            return true;
+        case '}':
+            pj_tok(parser, token, ++p, S_VALUE, PJ_TOK_MAP_E);
+            return true;
+
+        case ':':
+            /* colon allowed only after str */
+            if (s == S_STR_VALUE)
+            {
+                pj_tok(parser, token, ++p, S_INIT, PJ_TOK_KEY);
+                return true;
+            }
+            /* fall through to error */
+
+        default:
+            pj_err_tok(parser, token);
+            return false;
+        }
+
+    case S_COMMENT_START:
+        return pj_comment_start(parser, token, p, parser->state0);
+    case S_COMMENT_LINE:
+        return pj_comment_line(parser, token, p, parser->state0);
+    case S_COMMENT_REGION:
+        return pj_comment_region(parser, token, p, parser->state0);
+    case S_COMMENT_END:
+        return pj_comment_end(parser, token, p, parser->state0);
+
+    default:
+        assert(!"invalid state"); /* improperly initialized parser? */
+        abort();
+    }
+
+    // unreachable code
+}
+
+#endif

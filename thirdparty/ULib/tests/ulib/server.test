@@ -1,0 +1,37 @@
+#!/bin/sh
+
+. ../.function
+
+## server.test -- Test server feature
+
+start_msg server
+
+rm -rf err/server.err \
+		 trace.*server*.[0-9]* object.*server*.[0-9]* stack.*server*.[0-9]*
+
+#UTRACE="0 20M 0"
+#UTRACE_SIGNAL="0 10M 0"
+#UOBJDUMP="0 50M 1000"
+#USIMERR="error.sim"
+ export UTRACE UOBJDUMP USIMERR UTRACE_SIGNAL
+
+prepare_usp
+
+check_for_netcat
+
+#VALGRIND=valgrind # --gen-suppressions=all
+#STRACE=$TRUSS
+start_prg_background server ../../src/ulib/net/server/plugin/.libs '"echo http"' # '"soap http"'
+
+wait_server_ready localhost 8080
+
+#$TRUSS socat -u open:inp/http/form_enctype.http tcp4-connect:127.0.0.1:8080 >out/server.out 2>/tmp/trace.out
+
+send_req $NCAT localhost 8080 inp/http/form_enctype.http server 3 kill
+
+kill_server test_server
+
+rm -rf /tmp/form*
+
+# Test against expected output
+test_output_wc w server

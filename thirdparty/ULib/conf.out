@@ -1,0 +1,780 @@
+Platform: [1mcentos 7.8.2003 (AMD64)[m
+Configuring [1mULib[m (C++ Library)
+
+[1mInitial phase:[m
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking how to create a pax tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether make supports nested variables... (cached) yes
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking initial CXX... 
+checking initial CFLAGS... -g -O2
+checking initial CXXFLAGS... 
+checking initial CPPFLAGS... 
+checking initial LDFLAGS... 
+checking initial LIBS... 
+checking which platform we are running on... linux
+checking which architecture the target is... unknown
+checking which operating system the target is... linux
+checking which libc is detected for the target... glibc
+checking for pkg-config... /usr/bin/pkg-config
+
+[1mChecking for programs:[m
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking for gawk... (cached) gawk
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking how to run the C preprocessor... gcc -E
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for C/C++ restrict keyword... __restrict
+checking for working volatile... yes
+checking for inline... inline
+checking if compiling with clang... no
+checking for a supported OS... ok (linux-gnu)
+checking for the kernel version... 5 family (5.9.1-1.el7.elrepo.x86_64)
+checking for a supported version of gcc... ok (5.3.0)
+checking whether there are the gcc built-in functions to detect run-time CPU type and ISA... yes
+checking if we have support for crc32 intrinsics... yes
+checking if you want to enable build of gcc atomic support... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /opt/rh/devtoolset-9/root/usr/bin/ld
+checking if the linker (/opt/rh/devtoolset-9/root/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /opt/rh/devtoolset-9/root/usr/bin/nm -B
+checking the name lister (/opt/rh/devtoolset-9/root/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /opt/rh/devtoolset-9/root/usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /opt/rh/devtoolset-9/root/usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/opt/rh/devtoolset-9/root/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... yes
+checking whether a statically linked program can dlopen itself... no
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /opt/rh/devtoolset-9/root/usr/bin/ld -m elf_x86_64
+checking if the linker (/opt/rh/devtoolset-9/root/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/opt/rh/devtoolset-9/root/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/opt/rh/devtoolset-9/root/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for full c++ support and linking model... yes
+checking whether g++ supports C++11 features by default... no
+checking whether g++ supports C++11 features with -std=gnu++11... yes
+checking whether g++ -std=gnu++11 supports C++14 features by default... no
+checking whether g++ -std=gnu++11 supports C++14 features with -std=gnu++14... yes
+checking for debugging... no
+checking for target that allows unaligned reads and writes... yes
+checking for apex memcpy/memmove... no
+
+[1mChecking for headers:[m
+checking for ANSI C header files... (cached) yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether sys/types.h defines makedev... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking asm/mman.h usability... yes
+checking asm/mman.h presence... yes
+checking for asm/mman.h... yes
+checking cpuid.h usability... yes
+checking cpuid.h presence... yes
+checking for cpuid.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking float.h usability... yes
+checking float.h presence... yes
+checking for float.h... yes
+checking for inttypes.h... (cached) yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for stdint.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/timeb.h usability... yes
+checking sys/timeb.h presence... yes
+checking for sys/timeb.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking for unistd.h... (cached) yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking for byteswap.h... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking ifaddrs.h usability... yes
+checking ifaddrs.h presence... yes
+checking for ifaddrs.h... yes
+checking mcheck.h usability... yes
+checking mcheck.h presence... yes
+checking for mcheck.h... yes
+checking ndir.h usability... no
+checking ndir.h presence... no
+checking for ndir.h... no
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking for ndir.h... (cached) no
+checking for string.h... (cached) yes
+checking netpacket/packet.h usability... yes
+checking netpacket/packet.h presence... yes
+checking for netpacket/packet.h... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking semaphore.h usability... yes
+checking semaphore.h presence... yes
+checking for semaphore.h... yes
+checking sysexits.h usability... yes
+checking sysexits.h presence... yes
+checking for sysexits.h... yes
+checking streambuf.h usability... no
+checking streambuf.h presence... no
+checking for streambuf.h... no
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking net/if_arp.h usability... yes
+checking net/if_arp.h presence... yes
+checking for net/if_arp.h... yes
+checking sys/dir.h usability... yes
+checking sys/dir.h presence... yes
+checking for sys/dir.h... yes
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking sys/ndir.h usability... no
+checking sys/ndir.h presence... no
+checking for sys/ndir.h... no
+checking sys/inotify.h usability... yes
+checking sys/inotify.h presence... yes
+checking for sys/inotify.h... yes
+checking sys/sendfile.h usability... yes
+checking sys/sendfile.h presence... yes
+checking for sys/sendfile.h... yes
+checking sys/sched.h usability... no
+checking sys/sched.h presence... no
+checking for sys/sched.h... no
+checking sys/syscall.h usability... yes
+checking sys/syscall.h presence... yes
+checking for sys/syscall.h... yes
+checking linux/netfilter_ipv4/ipt_ACCOUNT.h usability... no
+checking linux/netfilter_ipv4/ipt_ACCOUNT.h presence... no
+checking for linux/netfilter_ipv4/ipt_ACCOUNT.h... no
+checking libnetfilter_conntrack/libnetfilter_conntrack.h usability... no
+checking libnetfilter_conntrack/libnetfilter_conntrack.h presence... no
+checking for libnetfilter_conntrack/libnetfilter_conntrack.h... no
+checking /usr/src/linux/include/generated/uapi/linux/version.h usability... no
+checking /usr/src/linux/include/generated/uapi/linux/version.h presence... no
+checking for /usr/src/linux/include/generated/uapi/linux/version.h... no
+checking whether sys/inotify.h actually works... yup
+checking for inotify_init1... yes
+checking for fopen in -lmsvcrt... no
+checking for socketpair in -lc... yes
+checking for getaddrinfo in -lc... yes
+checking for gethostbyname2 in -lc... yes
+checking for inet_ntop in -lc... yes
+checking for socket in -lsocket... no
+checking for lstat in -lc... yes
+checking for strcoll in -lc... yes
+checking for stricmp in -lc... no
+checking for stristr in -lc... no
+checking for sysconf in -lc... yes
+checking for posix_memalign in -lc... yes
+checking if you want to enable build of thread support... 
+checking if you want to always use GNU pth for threading... no
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_create in -lpthread... yes
+checking for pthread_suspend in -lpthread... no
+checking for pthread_cancel in -lpthread... yes
+checking for pthread_condattr_setclock in -lpthread... yes
+checking for pthread_setconcurrency in -lpthread... yes
+checking for pthread_yield in -lpthread... yes
+checking for pthread_delay in -lpthread... no
+checking for pthread_delay_np in -lpthread... no
+checking for pthread_setschedprio in -lpthread... yes
+checking for pthread_attr_setinheritsched in -lpthread... yes
+
+[1mChecking for functions:[m
+checking for uid_t in sys/types.h... yes
+checking for unistd.h... (cached) yes
+checking for working chown... yes
+checking for error_at_line... yes
+checking for pid_t... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking whether lstat correctly handles trailing slash... yes
+checking for sys/time.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for alarm... yes
+checking for working mktime... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for working strnlen... yes
+checking for working strtod... yes
+checking whether closedir returns void... no
+checking for accept4... yes
+checking for atexit... yes
+checking for clock_gettime... yes
+checking for daemon... yes
+checking for dup3... yes
+checking for epoll_create1... yes
+checking for epoll_wait... yes
+checking for epoll_ctl_batch... no
+checking for epoll_ctl_batch in -lposix4... no
+checking for epoll_ctl_batch in -lrt... no
+checking for epoll_ctl_batch in -lpthread... no
+checking for fallocate... yes
+checking for fallocate64... yes
+checking for fnmatch... yes
+checking for getaddrinfo... yes
+checking for getnameinfo... yes
+checking for getopt_long... yes
+checking for getpriority... yes
+checking for inet_ntop... yes
+checking for kqueue... no
+checking for kqueue in -lposix4... no
+checking for kqueue in -lrt... no
+checking for kqueue in -lpthread... no
+checking for kqueue1... no
+checking for kqueue1 in -lposix4... no
+checking for kqueue1 in -lrt... no
+checking for kqueue1 in -lpthread... no
+checking for lrintl... yes
+checking for memmem... yes
+checking for memrchr... yes
+checking for mkdtemp... yes
+checking for mremap... yes
+checking for pipe2... yes
+checking for posix_spawn... yes
+checking for pread... yes
+checking for sched_getcpu... yes
+checking for sched_getaffinity... yes
+checking for sem_init... no
+checking for sem_init in -lposix4... no
+checking for sem_init in -lrt... no
+checking for sem_init in -lpthread... yes
+checking for sem_getvalue... no
+checking for sem_getvalue in -lposix4... no
+checking for sem_getvalue in -lrt... no
+checking for sem_getvalue in -lpthread... yes
+checking for sem_timedwait... no
+checking for sem_timedwait in -lposix4... no
+checking for sem_timedwait in -lrt... no
+checking for sem_timedwait in -lpthread... yes
+checking for sendfile... yes
+checking for sendfile64... yes
+checking for strndup... yes
+checking for strptime... yes
+checking for strsignal... yes
+checking for strtof... yes
+checking for strtold... yes
+checking for strtoull... yes
+checking for gmtime_r... yes
+checking for timegm... yes
+checking for nanosleep... yes
+checking for strerror... yes
+checking for shm_open... no
+checking for shm_open in -lposix4... no
+checking for shm_open in -lrt... yes
+
+[1mC++ stuff:[m
+checking netinet6/in6.h usability... no
+checking netinet6/in6.h presence... no
+checking for netinet6/in6.h... no
+checking linux/in6.h usability... yes
+checking linux/in6.h presence... yes
+checking for linux/in6.h... yes
+checking for inet_pton in -lc... yes
+checking for gethostbyname2 in -lc... yes
+checking if you want to enable build of examples... no
+checking if you want to enable use of memory pool... yes
+checking if you want to enable Large File Support... yes
+checking if you want to enable use of coverage... no
+checking for compile with GCC optimizations flags enabled... yes
+checking if you want to enable mode final for build of ulib library... yes
+checking for use of the new linker flags... yes
+checking whether g++ -std=gnu++11 -std=gnu++14 supports -fvisibility-inlines-hidden... yes
+checking for C/C++ restrict keyword... (cached) __restrict
+checking if you want to enable client response partial write support... no
+checking if you want to enable server captive portal mode... no
+checking if you want to enable server thread approach support... no
+checking if you want to enable HTTP inotify support... no
+checking if you want to enable client and server log support... yes
+checking if you want to enable GDB stack dump support... no
+checking if you want to enable cache request support... no
+checking if you want to enable homogeneous pipeline request support... no
+checking if you want to enable HTTP/2 support... no
+checking if you want to enable server check time between request for parallelization... no
+checking if you want to enable server classic model support... no
+checking if you want to enable server bandwidth throttling support... no
+checking if you want to enable alias URI support... yes
+checking if you want to enable welcome message support... no
+checking if you want to enable ACL filtering support... no
+checking if you want to enable RFC1918 filtering support... no
+checking if you want to enable HTTP Strict Transport Security support... no
+checking if you want to enable HTML pagination support... no
+checking if you want to enable load balance support between physical server via udp brodcast... no
+checking if you want to enable use of bison/yacc... no
+checking if you want to use distcc... no
+
+[1mChecking for libraries to link against:[m
+checking if LIBZ library is wanted... no
+checking if you want to enable build of ZIP support... no
+checking if zopfli library is wanted... no
+checking if MAGIC library is wanted... no
+checking if SSL library is wanted... no
+checking if PCRE library is wanted... no
+checking if EXPAT library for XML parsing is wanted... no
+checking if libuuid library is wanted... no
+checking if cURL library is wanted... no
+checking if tdb library is wanted... no
+checking if c-ares library for DNS resolution is wanted... no
+checking if SSH library is wanted... no
+checking if LDAP library is wanted... no
+checking if DBI library is wanted... no
+checking if libevent library is wanted... no
+checking if libxml2 library is wanted... no
+checking if you want to use page-speed SDK... no
+checking if you want to use V8 JavaScript Engine... no
+checking for SQLite3 support... no
+checking for MySQL support... no
+checking for PostgreSQL support... no
+
+[1mChecking for libraries specific:[m
+checking for tcc_compile_string in -ltcc... no
+checking for GeoIP_id_by_ipnum in -lGeoIP... no
+checking for siginfo_t... yes
+checking for siginfo_t.si_addr... yes
+checking whether new ldflags are wanted... yes
+checking if you want to use a mongoDB client... no
+
+[1mChecking for language support:[m
+checking if you want to use php-embedded... no
+checking if you want to use ruby-embedded... no
+checking if you want to use python-embedded... no
+
+[1mChecking for typedefs:[m
+checking for stdbool.h that conforms to C99... no
+checking for _Bool... no
+checking for uid_t in sys/types.h... (cached) yes
+checking for inline... (cached) inline
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for int8_t... yes
+checking for mode_t... yes
+checking for off_t... yes
+checking for pid_t... (cached) yes
+checking for C/C++ restrict keyword... (cached) __restrict
+checking for size_t... (cached) yes
+checking for ssize_t... yes
+checking for struct stat.st_blksize... yes
+checking for struct stat.st_blocks... yes
+checking for struct stat.st_rdev... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for uint8_t... yes
+checking for ptrdiff_t... yes
+
+[1mChecking for structures:[m
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking whether stat file-mode macros are broken... no
+checking for struct stat.st_blocks... (cached) yes
+checking for struct iphdr... yes
+checking for struct dirent.d_type... yes
+checking for struct dirent.d_reclen... yes
+checking for struct dirent.d_namlen... no
+checking for struct tm.tm_gmtoff... yes
+
+[1mChecking for types:[m
+checking for an ANSI C-conforming const... yes
+checking for size_t... (cached) yes
+checking for ptrdiff_t... (cached) yes
+checking for cpu_set_t... yes
+checking size of unsigned char... 1
+checking size of short... 2
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking size of time_t... 8
+checking size of size_t... 8
+checking size of void *... 8
+checking for working socket option SO_RCVTIMEO... yes
+checking whether fallocate is supported... yes
+
+[1mChecking for server plugin:[m
+checking server plugin "rpc"... dynamic
+checking server plugin "stream"... dynamic
+checking server plugin "nocat"... dynamic
+checking server plugin "socket"... dynamic
+checking server plugin "scgi"... dynamic
+checking server plugin "fcgi"... dynamic
+checking server plugin "ssi"... dynamic
+checking server plugin "tsa"... dynamic
+checking server plugin "http"... dynamic
+checking server plugin "echo"... dynamic
+checking loader.autoconf files... done
+
+[1mChecking for ORM driver:[m
+checking loader.autoconf files... done
+
+[1mChecking for static HTTP servlet:[m
+checking loader.autoconf files... done
+checking whether to use libgcc... no
+
+[1mChecking for gcc compiler flags:[m
+checking whether gcc supports ... yes
+checking for gcc supported flags... 
+checking whether gcc supports -Werror-implicit-function-declaration... yes
+checking whether gcc supports -Wstrict-prototypes... yes
+checking whether gcc supports -Wc++-compat... yes
+checking whether gcc supports -Wmissing-prototypes... yes
+checking whether gcc supports -Wnested-externs... yes
+checking whether gcc supports -Wdeclaration-after-statement... yes
+checking whether gcc supports -Wold-style-definition... yes
+checking whether gcc supports -Wsizeof-pointer-memaccess... yes
+checking whether gcc supports -Wstrict-aliasing=2... yes
+checking whether gcc supports -Wall... yes
+checking whether gcc supports -Wextra... yes
+checking whether gcc supports -Wsign-compare... yes
+checking whether gcc supports -Wpointer-arith... yes
+checking whether gcc supports -Wwrite-strings... yes
+checking whether gcc supports -Wmissing-declarations... yes
+checking whether gcc supports -Wpacked... yes
+checking whether gcc supports -Wswitch-enum... yes
+checking whether gcc supports -Wmissing-format-attribute... yes
+checking whether gcc supports -Winit-self... yes
+checking whether gcc supports -Wformat... yes
+checking whether gcc supports -Wformat-extra-args... no
+checking whether gcc supports -Wenum-compare... yes
+checking whether gcc supports -Wlogical-not-parentheses... yes
+checking whether gcc supports -Wsizeof-array-argument... yes
+checking whether gcc supports -Wbool-compare... yes
+checking whether gcc supports -Wno-unused-result... yes
+checking whether gcc supports -Wshadow... yes
+checking whether gcc supports -Wsuggest-attribute=pure... yes
+checking whether gcc supports -Wsuggest-attribute=noreturn... yes
+checking whether gcc supports -fno-stack-protector... yes
+checking whether gcc supports -fno-stack-protector-all... no
+checking whether gcc supports -ffast-math... yes
+checking whether gcc supports -ftree-vectorize... yes
+checking whether gcc supports -fno-crossjumping... yes
+checking whether gcc supports -fno-gcse... yes
+checking whether gcc supports -fpartial-inlining... yes
+checking whether gcc supports -Ofast... yes
+checking whether gcc supports -flto... yes
+checking whether gcc supports -ffat-lto-objects... yes
+checking whether gcc supports -fuse-linker-plugin... yes
+checking whether gcc supports -march=native... yes
+checking whether gcc supports -mtune=native... yes
+checking whether gcc supports -Winline... yes
+checking whether gcc supports -Wno-unused-parameter... yes
+checking whether gcc supports -Wno-unused-variable... yes
+checking whether gcc supports -fno-check-new... yes
+checking whether gcc supports -fno-enforce-eh-specs... yes
+checking whether gcc supports -Wno-deprecated... yes
+checking whether gcc supports -Wdelete-non-virtual-dtor... yes
+checking whether gcc supports -Wodr... yes
+checking which gcc flags were supported...  -Wstrict-aliasing=2 -Wall -Wextra -Wsign-compare -Wpointer-arith -Wwrite-strings -Wmissing-declarations -Wpacked -Wswitch-enum -Wmissing-format-attribute -Winit-self -Wformat -Wenum-compare -Wlogical-not-parentheses -Wsizeof-array-argument -Wbool-compare -Wno-unused-result -Wshadow -Wsuggest-attribute=pure -Wsuggest-attribute=noreturn -fno-stack-protector -ffast-math -ftree-vectorize -fno-crossjumping -fno-gcse -fpartial-inlining -Ofast -flto -ffat-lto-objects -fuse-linker-plugin -march=native -mtune=native -Winline -Wno-unused-parameter -Wno-unused-variable 
+checking sanitize support request... no
+checking for gcc-ar... /usr/local/gcc5/bin/gcc-ar
+checking for cpp... /usr/local/gcc5/bin/cpp
+checking for mcpp... no
+checking for atomic... yes
+checking for doxygen... /usr/bin/doxygen
+checking for dlopen in -lc... no
+checking for dlopen in -ldl... (cached) yes
+checking whether to use libgcc... no
+checking strstream.h usability... no
+checking strstream.h presence... no
+checking for strstream.h... no
+checking determine if the kind of C++ iostream support is old... no
+
+[1mOutput Substitution:[m
+checking for workaround to enable on Sabayon... no
+configure: Configured to build src/ulib/libulib:
+------------------------------------------------------------------------
+           ULib version: 1.4.2
+             Build ULib: Shared=no, Static=yes
+
+             Host setup: x86_64-unknown-linux-gnu
+         Install prefix: /usr/local
+         Install plugin: /usr/local/libexec
+     Configuration data: /usr/local/etc
+
+       Operating System: Linux gleb 5.9.1-1.el7.elrepo.x86_64 #1 SMP Fri Oct 16 10:55:30 EDT 2020 x86_64 x86_64 x86_64 GNU/Linux
+           C++ Compiler: g++ ( 5.3.0 )
+                 Linker: /opt/rh/devtoolset-9/root/usr/bin/ld -m elf_x86_64 ( GNU ld version 2.32-16.el7 )
+   Standard C   library: glibc 2.17
+   Standard C++ library: unknown
+              Libraries:  /usr/local/gcc5/lib/gcc/x86_64-redhat-linux/5.3.0/libstdc++.a /usr/local/gcc5/lib/gcc/x86_64-redhat-linux/5.3.0/libgcc.a  -lpthread -lrt -ldl -lc
+
+              C   Flags: -g -O2  -Werror-implicit-function-declaration -Wstrict-prototypes -Wc++-compat -Wmissing-prototypes -Wnested-externs -Wdeclaration-after-statement -Wold-style-definition -Wsizeof-pointer-memaccess
+              C++ Flags: -std=gnu++14 -std=gnu++11  -I/usr/local/include -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti  -fno-check-new -fno-enforce-eh-specs -Wno-deprecated -Wdelete-non-virtual-dtor -Wodr
+           Linker Flags:  -L/usr/local/lib -Wl,-O1 -Wl,--as-needed -Wl,-z,now,-O1,--hash-style=gnu,--sort-common -Wl,--as-needed
+     Preprocessor Flags:  -mcrc32 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -pipe   -Wstrict-aliasing=2 -Wall -Wextra -Wsign-compare -Wpointer-arith -Wwrite-strings -Wmissing-declarations -Wpacked -Wswitch-enum -Wmissing-format-attribute -Winit-self -Wformat -Wenum-compare -Wlogical-not-parentheses -Wsizeof-array-argument -Wbool-compare -Wno-unused-result -Wshadow -Wsuggest-attribute=pure -Wsuggest-attribute=noreturn -fno-stack-protector -ffast-math -ftree-vectorize -fno-crossjumping -fno-gcse -fpartial-inlining -Ofast -flto -ffat-lto-objects -fuse-linker-plugin -march=native -mtune=native -Winline -Wno-unused-parameter -Wno-unused-variable   
+
+          debug support: no (--enable-debug)
+       final build mode: enabled
+    memory pool support: enabled
+            LFS support: enabled
+           ipv6 support: no (--with-ipv6)
+            zip support: no (--enable-zip)
+         thread support: no (--enable-thread)
+
+           LIBZ support: no (--with-libz)
+      LIBZOPFLI support: no (--with-libzopfli)
+         LIBTDB support: no (--with-libtdb)
+           PCRE support: no (--with-pcre)
+            SSL support: no (--with-ssl)
+            SSH support: no (--with-ssh)
+           LDAP support: no (--with-ldap)
+           cURL support: no (--with-curl)
+            XML support: no (--with-expat)
+          MAGIC support: no (--with-magic)
+         SQLite support: no (--with-sqlite)
+          MySQL support: no (--with-mysql)
+          PgSQL support: no (--with-pgsql)
+            DBI support: no (--with-libdbi)
+        libuuid support: no (--with-libuuid)
+       libevent support: no (--with-libevent)
+        libxml2 support: no (--with-libxml2)
+         c-ares support: no (--enable-libares)
+     Page-Speed support: no (--with-page-speed)
+  V8 JavaScript support: no (--with-v8-javascript)
+   PHP language support: no (--with-php-embedded)
+  RUBY language support: no (--with-ruby-embedded)
+PYTHON language support: no (--with-python-embedded)
+
+       Examples:         no (--enable-examples)
+       LEX/YACC support: no (--with-parser)
+       Lexical analyzer:  ( None )
+       Parser generator:  ( None )
+
+See include/ulib/internal/config.h for further configuration information
+------------------------------------------------------------------------
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating rpm.sh
+config.status: creating ULib.spec
+config.status: creating m4/Makefile
+config.status: creating doc/Makefile
+config.status: creating include/Makefile
+config.status: creating contrib/Makefile
+config.status: creating include/ulib/Makefile
+config.status: creating contrib/HCSP/Makefile
+config.status: creating contrib/RSIGN/Makefile
+config.status: creating contrib/signer/Makefile
+config.status: creating fuzz/Makefile
+config.status: creating src/ulib/Makefile
+config.status: creating src/ulib/ULib.rc
+config.status: creating src/ulib/ULib.pc
+config.status: creating src/ulib/orm/driver/Makefile
+config.status: creating src/ulib/net/server/plugin/Makefile
+config.status: creating src/ulib/net/server/plugin/v8/Makefile
+config.status: creating src/ulib/net/server/plugin/php/Makefile
+config.status: creating src/ulib/net/server/plugin/usp/Makefile
+config.status: creating src/ulib/net/server/plugin/ruby/Makefile
+config.status: creating src/ulib/net/server/plugin/mod_shib/Makefile
+config.status: creating src/ulib/net/server/plugin/mod_geoip/Makefile
+config.status: creating src/ulib/net/server/plugin/usp/usp_compile.sh
+config.status: creating src/ulib/net/server/plugin/page_speed/Makefile
+config.status: creating src/ulib/net/server/plugin/python/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/IR/Makefile
+config.status: creating examples/csp/Makefile
+config.status: creating examples/lcsp/Makefile
+config.status: creating examples/rsign/Makefile
+config.status: creating examples/hello/Makefile
+config.status: creating examples/WiAuth/Makefile
+config.status: creating examples/xml2txt/Makefile
+config.status: creating examples/uclient/Makefile
+config.status: creating examples/userver/Makefile
+config.status: creating examples/PEC_log/Makefile
+config.status: creating examples/workflow/Makefile
+config.status: creating examples/doc_parse/Makefile
+config.status: creating examples/lrp_session/Makefile
+config.status: creating examples/http_header/Makefile
+config.status: creating examples/test_manager/Makefile
+config.status: creating examples/doc_classifier/Makefile
+config.status: creating examples/form_completion/Makefile
+config.status: creating examples/simple_client_server/Makefile
+config.status: creating examples/download_accelerator/Makefile
+config.status: creating examples/XAdES/Makefile
+config.status: creating examples/XAdES/XAdES.spec
+config.status: creating examples/xml2txt/xml2txt.spec
+config.status: creating examples/IR/searchengine-bin.spec
+config.status: creating examples/lcsp/lcsp.spec
+config.status: creating examples/lcsp/lcsp_rpc.spec
+config.status: creating examples/csp/cspclient.spec
+config.status: creating examples/csp/cspclient_rpc.spec
+config.status: creating examples/rsign/rsignclient.spec
+config.status: creating examples/rsign/rsignclient_rpc.spec
+config.status: creating examples/userver/web_server.spec
+config.status: creating examples/userver/wagsmserver.spec
+config.status: creating examples/workflow/workflow.spec
+config.status: creating examples/PEC_log/PEC_log.spec
+config.status: creating examples/userver/tsaserver.spec
+config.status: creating examples/userver/cspserver.spec
+config.status: creating examples/userver/rsignserver.spec
+config.status: creating examples/doc_parse/doc_parse.spec
+config.status: creating tests/Makefile
+config.status: creating tests/base/Makefile
+config.status: creating tests/debug/Makefile
+config.status: creating tests/ulib/Makefile
+config.status: creating tests/ulib/http2/Makefile
+config.status: creating tests/examples/Makefile
+config.status: creating tests/contrib/Makefile
+config.status: creating include/ulib/internal/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+checking if generated configuration is usable... yes
+
+You are now ready to build ULib
+Enter the following command: [1mmake && make install[m
+After on some environment you must run also the following command: [1msudo ldconfig[m

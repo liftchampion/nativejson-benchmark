@@ -1,0 +1,28 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Vim files
+*.swp
+tags
+*~
+.ycm_extra_conf.pyc
+
+# Output directory
+bin/
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Make
+.build_*
+Makefile
+
+# Generated files
+include/jeayeson/config.hpp

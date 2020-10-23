@@ -1,0 +1,26 @@
+A big thanks to the following individuals for contributing:
+
+Andrew Hutko (early code review)        
+
+Marc Chevrier (contributed clang port, build files, json is<T> and as<T> methods, 
+and make_array template implementation.)
+
+Pedro Larroy and the developers of the clearskies_core project (contributed build 
+system for posix systems, adding GCC to list of supported compilers, bug fixes, 
+Android fix)
+
+Cory Fields (code cleanup)
+
+Vitaliy Gusev (reported error in json object operator[size_t i])
+
+Alex Merry (reported errors with "typename" keyword experienced with gcc and providing 
+fixes for 0.95.)
+
+Ignatov Serguei (reported issues experienced with gcc for 0.95 and 0.96 candidate and helped fix them)
+
+Milan Burda for fix for clang build error
+
+Peter Tissen, for reporting and suggesting a fix for get(name,default_val)
+
+Tom Bass for assistance with clang build errors
+

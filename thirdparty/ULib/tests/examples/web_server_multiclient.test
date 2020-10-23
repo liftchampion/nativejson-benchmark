@@ -1,0 +1,82 @@
+#!/bin/sh
+
+. ../.function
+
+## web_server_multiclient.test -- Test web_server feature
+
+start_msg web_server_multiclient
+
+(cd benchmark; rm -f db; creat_link FrameworkBenchmarks/ULib/db db; sync)
+(cd ..;        rm -f db; creat_link examples/benchmark/db db;		  sync)
+
+DOC_ROOT=benchmark/docroot
+
+rm -f $DOC_ROOT/web_server_multiclient.log* \
+      out/userver_tcp.out err/userver_tcp.err err/web_server_multiclient.err \
+                trace.*userver_*.[0-9]*           object.*userver_*.[0-9]*           stack.*userver_*.[0-9]*           mempool.*userver_*.[0-9]* \
+      $DOC_ROOT/trace.*userver_*.[0-9]* $DOC_ROOT/object.*userver_*.[0-9]* $DOC_ROOT/stack.*userver_*.[0-9]* $DOC_ROOT/mempool.*userver_*.[0-9]*
+
+#UTRACE="0 10M 0"
+#UTRACE_SIGNAL="0 100M -1"
+#UOBJDUMP="0 10M 100"
+#USIMERR="error.sim"
+export UTRACE UOBJDUMP USIMERR UTRACE_SIGNAL
+
+if [ "$TERM" = "msys" ]; then
+	export TMPDIR="c:/tmp"
+fi
+
+cat <<EOF >inp/webserver.cfg
+userver {
+ PORT 8080
+ RUN_AS_USER apache
+ LOG_FILE web_server_multiclient.log
+ LOG_FILE_SZ 1M
+ LOG_MSG_SIZE -1
+#REQ_TIMEOUT 5
+#MAX_KEEP_ALIVE 3
+ PID_FILE /var/run/userver_tcp.pid
+ DOCUMENT_ROOT benchmark/docroot
+#PLUGIN "nocat ssi http"
+ PLUGIN_DIR     ../../../../src/ulib/net/server/plugin/.libs
+ ORM_DRIVER_DIR ../../../../src/ulib/orm/driver/.libs
+ PREFORK_CHILD 0 
+}
+http {
+ ALIAS "[ / /index.php ]"
+ ENABLE_INOTIFY yes
+ APACHE_LIKE_LOG /var/log/httpd/access_log
+ CACHE_FILE_MASK inp/http/data/file1|*.flv|*.svgz
+}
+nocat {
+   FW_CMD firewall/nodog.fw
+   DECRYPT_KEY puppamelo
+   CHECK_TYPE 4
+   CHECK_EXPIRE_INTERVAL 360
+   FW_ENV "ExternalDevice=eth0 MasqueradeDevice=eth0 MasqueradeAuthServiceIP=0 'AuthServiceAddr=http://test' LocalNetwork=192.168.119.0/24 InternalDevice=eth0:1"
+   LOCAL_NETWORK_LABEL ap
+}
+EOF
+
+DIR_CMD="../../examples/userver"
+
+compile_usp
+
+#STRACE=$TRUSS
+#STRACE=$LTRUSS
+#VALGRIND='valgrind --leak-check=yes --track-origins=yes'
+start_prg_background userver_tcp -c inp/webserver.cfg
+
+wait_server_ready localhost 8080
+
+#ab -k -n 2	  -c 2 http://$ADDRESS:8080/servlet/benchmarking?name=stefano >/dev/null 2>&1
+ ab -k -n 100 -c 2 http://127.0.0.1:8080/servlet/benchmarking?name=stefano >/dev/null 2>&1
+$SLEEP
+kill_server userver_tcp
+
+mv err/userver_tcp.err err/web_server_multiclient.err
+
+cat $DOC_ROOT/web_server_multiclient.log > out/web_server_multiclient.out
+
+# Test against expected output
+test_output_wc l web_server_multiclient

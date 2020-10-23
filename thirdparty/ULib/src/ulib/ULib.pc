@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=/usr/local
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+sysconfdir=${prefix}/etc
+
+Name: ULib
+Description: C++ application development framework
+Version: 1.4.2
+Libs: -Wl,-R${libdir} -L${libdir} -lulib  /opt/rh/devtoolset-9/root/usr/lib/gcc/x86_64-redhat-linux/9/libstdc++.a /opt/rh/devtoolset-9/root/usr/lib/gcc/x86_64-redhat-linux/9/libgcc.a  -lpthread -lrt -ldl -lc
+Cflags: -I${includedir}  -mcrc32 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -pipe   -Wstrict-aliasing=2 -Wall -Wextra -Wsign-compare -Wpointer-arith -Wwrite-strings -Wmissing-declarations -Wpacked -Wswitch-enum -Wmissing-format-attribute -Winit-self -Wformat -Wenum-compare -Wlogical-not-parentheses -Wsizeof-array-argument -Wbool-compare -Wno-unused-result -Wshadow -Wsuggest-attribute=pure -Wsuggest-attribute=noreturn -Wlogical-op -Wduplicated-cond -Wtautological-compare -Wswitch-bool -Wshift-negative-value -Wshift-overflow -Wshift-overflow=2 -Wnull-dereference -Wnonnull -fno-stack-protector -ffast-math -ftree-vectorize -fno-crossjumping -fno-gcse -fpartial-inlining -Ofast -flto -ffat-lto-objects -fuse-linker-plugin -march=native -mtune=native -Winline -Wno-unused-parameter -Wno-unused-variable     -I/usr/local/include -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti  -fno-check-new -fno-enforce-eh-specs -Wno-deprecated -Wdelete-non-virtual-dtor -Wodr -Wterminate -Wlto-type-mismatch -Wsubobject-linkage -Wplacement-new -Wvirtual-inheritance -Wnamespaces

@@ -1,0 +1,12 @@
+language: c
+script: make -j 8 test_build_and_run
+os:
+  - linux
+  - osx
+compiler:
+  - clang
+  - gcc
+notifications:
+  email: false
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
